@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.player-profile {
+  max-width: 1000px;
+  margin: 0 auto; /* Menjaga elemen tetap di tengah */
+  padding: 0 1rem; /* Ruang sisi agar tidak menempel layar */
+  position: relative;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at center, rgb(218, 210, 205) 10%, rgb(218, 210, 205) 50%, rgb(180, 180, 180) 100%);
+}
+
+/* Add vignette effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, transparent 50%, rgb(218, 210, 205) 100%, rgb(218, 210, 205) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Ensure content stays above vignette */
+.nba-header,
+.player-profile {
+  position: relative;
+  z-index: 2;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+/* fav button -------------------------------------- */
+
+.favorite-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  margin-top: 20rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-tag:hover {
+  background: #1b1f21;
+}
+
+/* fav button -------------------------------------- */
+
+.player-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 8rem;
+}
+
+.background-container {
+  position: absolute; /* Letakkan elemen di luar alur dokumen normal */
+  top: 10rem;
+  left: 50%; /* Pusatkan secara horizontal */
+  transform: translateX(-50%); /* Koreksi posisi agar benar-benar di tengah */
+  width: 700px; /* Tetapkan lebar tetap */
+  height: auto; /* Sesuaikan tinggi secara proporsional */
+  z-index: -1; /* Latar belakang paling bawah */
+  overflow: hidden; /* Sembunyikan bagian gambar yang keluar */
+  opacity: 70%;
+}
+
+/* Gambar latar belakang */
+.background-image {
+  width: 100%; /* Isi penuh kontainer */
+  height: auto; /* Jaga proporsi gambar */
+  object-fit: cover; /* Pastikan gambar mengisi seluruh kontainer */
+}
+
+.background-profile-picture {
+  position: absolute;
+  top: 1rem; /* Tetap berada di tempat */
+  left: 50%;
+  transform: translate(-50%, -54%);
+  width: 200vw; /* Responsif sesuai lebar layar */
+  max-width: 700px; /* Batas maksimum */
+  height: auto;
+  z-index: 1;
+  opacity: 1;
+}
+
+.player-name-section h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #333;
+  margin-bottom: -0.5rem; /* Jarak antara nama dan NIM diperpendek */
+}
+
+.game-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.location-link {
+  display: inline-block;
+  padding: 0.5rem rem;
+  background: #1b1f21;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.location-link:hover {
+  background: #333;
+}
+
+.sign-image {
+  position: absolute; /* Pastikan posisinya relatif terhadap elemen induk */
+  top: calc(45% - 5rem); /* Sesuaikan jarak vertikal, tergantung tata letak */
+  left: 5%; /* Posisikan di tengah secara horizontal */
+  transform: translate(-50%, 0); /* Koreksi agar benar-benar di tengah */
+  width: 140px; /* Atur lebar gambar */
+  height: auto; /* Jaga proporsi gambar */
+  z-index: 3; /* Pastikan di atas tombol favorit */
+}
+
+/* box item -------------------------------------- */
+
+.game-stats {
+  margin-top: 1rem; /* Menurunkan kartu kontak */
+  position: relative; /* Pastikan ini tidak memengaruhi foto */
+  z-index: 2; /* Tetap di atas foto */
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #1b1f21, #1b1f21);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px #1b1f21;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h3 {
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: clamp(1rem, 1vw, 1rem);
+  font-weight: 700;
+}
+
+/* box item -------------------------------------- */
+
+/*box putih ---------------------------------------*/
+
+.game-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 25px;
+  opacity: 90%;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+  backdrop-filter: blur(80px);
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+}
+
+.game-card h3 {
+  font-size: 2rem;
+  color: #1b1f21;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(1.3rem, 1vw, 13rem);
+  font-weight: 700;
+  color: #1b1f21;
+}
+
+/*box putih ---------------------------------------*/
+
+/*logo --------------------------------------------*/
+
+.logo {
+  position: absolute;
+  top: 1rem; /* Jarak dari atas */
+  left: 1rem; /* Jarak dari kanan */
+  width: 100px;
+  height: auto;
+  z-index: 10;
+  transition: transform 0.3s ease, width 0.3s ease; /* Efek halus */
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Membesar saat di-hover */
+}
+
+/* Mobile styles */
+@media screen and (max-width: 1100px) {
+  .logo {
+    width: 80px; /* Ukuran lebih kecil untuk layar sempit */
+  }
+
+  .favorite-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    margin-top: 20rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .favorite-tag:hover {
+    background: #1b1f21;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .player-profile {
+    padding: 0 0.5rem;
+  }
+
+  .favorite-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    margin-top: 20rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .favorite-tag:hover {
+    background: #1b1f21;
+  }
+
+  .background-profile-picture {
+    position: relative;
+    width: 100%; /* Sesuaikan dengan lebar layar */
+    max-width: 4000px; /* Tetapkan batas maksimum */
+    margin-top: -15rem;
+    top: auto; /* Sesuaikan posisi untuk mobile */
+    left: auto;
+    right: auto;
+    transform: none; /* Hilangkan transformasi */
+    z-index: 0; /* Letakkan di bawah elemen lain */
+  }
+
+  .stat-card,
+  .game-card {
+    padding: 1rem;
+  }
+}
