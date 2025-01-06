@@ -5,6 +5,11 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
+h1,
+.game-card h3 {
+  font-family: "Gloock", serif;
+}
+
 .player-profile {
   max-width: 1000px;
   margin: 0 auto; /* Menjaga elemen tetap di tengah */
@@ -212,14 +217,19 @@ nav a:hover {
 .game-card h3 {
   font-size: 2rem;
   color: #1b1f21;
+  margin-top: -0.1rem;
+  font-weight: 200;
+  margin-inline: 1rem;
 }
 
 .score {
   display: flex;
   justify-content: space-between;
-  font-size: clamp(1.3rem, 1vw, 13rem);
-  font-weight: 700;
+  font-size: clamp(1.3rem, 2vw, 13rem);
+  font-weight: 500;
   color: #1b1f21;
+  margin-top: -0.5rem;
+  margin-inline: 1rem;
 }
 
 /*box putih ---------------------------------------*/
@@ -238,6 +248,13 @@ nav a:hover {
 
 .logo:hover {
   transform: scale(1.1); /* Membesar saat di-hover */
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 /* Mobile styles */
@@ -288,6 +305,7 @@ nav a:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
+    opacity: 0%;
   }
 
   .favorite-tag:hover {
